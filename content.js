@@ -10,9 +10,9 @@ function tweet_modifier() {
           const displayName = displayNameElement ? displayNameElement.textContent.trim() : '';
 
           // Find the handle (usually comes after the display name, starts with @)
+          // Find the handle (usually comes after the display name, starts with @)
           const handleElement = usernameElement.querySelector('div[class*="css-"] > div[class*="css-"]:nth-child(2)');
           const handle = handleElement ? handleElement.textContent.trim() : '';
-
           // Get tweet text
           const tweetTextElement = tweet.querySelector('div[data-testid="tweetText"]');
           const tweetText = tweetTextElement ? tweetTextElement.textContent.trim() : '';
@@ -30,6 +30,15 @@ function tweet_modifier() {
 
           // Mark this tweet as processed
           tweet.setAttribute('data-processed', 'true');
+
+          // ping server with tweet data
+          fetch('http://localhost:5000/', {
+              method: 'GET',
+              headers: { 'Content-Type': 'application/json' }
+          })
+          .then(response => response.json())
+          .then(data => console.log("da data is: ",data))
+          .catch(error => console.error('Error:', error));
       }
   });
 }
