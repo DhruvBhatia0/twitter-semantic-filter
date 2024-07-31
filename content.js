@@ -1,3 +1,5 @@
+import {tweet_analyzer} from './tweet_analyzer.js';
+
 (function() {
     function checkAndBlockPage() {
         const currentURL = window.location.href;
@@ -22,11 +24,18 @@
                     font-size: 24px;
                     z-index: 9999;
                 `;
-                blocker.textContent = 'ヽ(●ﾟ´Д｀ﾟ●)ﾉﾟ Use your time in better ways';
+                blocker.textContent = 'o͡͡͡╮༼ ʘ̆ ۝ ʘ̆ ༽╭o͡͡͡   Use your time in better ways';
                 document.body.appendChild(blocker);
             }
         } else if (currentURL.includes('x.com')) {
             console.log('hi');
+
+            // Find all tweet elements and pass them to relevant_tweet function
+            const tweetElements = document.querySelectorAll('article[data-testid="tweet"]');
+            tweetElements.forEach(tweetElement => {
+                relevant_tweet(tweetElement);
+            });
+
         } else {
             const blocker = document.getElementById('semantic-ai-blocker');
             if (blocker) {

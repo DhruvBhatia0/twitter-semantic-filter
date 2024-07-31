@@ -19,7 +19,8 @@
           "https://www.youtube.com/*",
           "https://x.com/*"
         ],
-        "js": ["content.js"]
+        "js": ["tweet_analyzer.js", "content.js"],
+        "type": "module"
       }
     ]
   }
