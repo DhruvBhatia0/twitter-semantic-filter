@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Semantic AI",
+    "version": "1.0",
+    "description": "Encourages better use of time on certain websites",
+    "permissions": ["activeTab", "webNavigation"],
+    "host_permissions": [
+      "https://www.instagram.com/*",
+      "https://www.youtube.com/shorts/*",
+      "https://x.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "https://www.instagram.com/*",
+          "https://www.youtube.com/shorts/*",
+          "https://x.com/*"
+        ],
+        "js": ["content.js"]
+      }
+    ]
+  }
