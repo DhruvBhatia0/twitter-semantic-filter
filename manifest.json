@@ -6,7 +6,7 @@
     "permissions": ["activeTab", "webNavigation"],
     "host_permissions": [
       "https://www.instagram.com/*",
-      "https://www.youtube.com/shorts/*",
+      "https://www.youtube.com/*",
       "https://x.com/*"
     ],
     "background": {
@@ -16,7 +16,7 @@
       {
         "matches": [
           "https://www.instagram.com/*",
-          "https://www.youtube.com/shorts/*",
+          "https://www.youtube.com/*",
           "https://x.com/*"
         ],
         "js": ["content.js"]
