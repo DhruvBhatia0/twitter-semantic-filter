@@ -3,7 +3,10 @@
     "name": "Semantic AI",
     "version": "1.0",
     "description": "Encourages better use of time on certain websites",
-    "permissions": ["activeTab", "webNavigation"],
+    "permissions": [
+      "activeTab",
+      "webNavigation"
+    ],
     "host_permissions": [
       "https://www.instagram.com/*",
       "https://www.youtube.com/*",
@@ -19,8 +22,17 @@
           "https://www.youtube.com/*",
           "https://x.com/*"
         ],
-        "js": ["tweet_analyzer.js", "content.js"],
-        "type": "module"
+        "js": ["content-loader.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["content-script.js", "tweet_analyzer.js"],
+        "matches": [
+          "https://www.instagram.com/*",
+          "https://www.youtube.com/*",
+          "https://x.com/*"
+        ]
       }
     ]
   }
